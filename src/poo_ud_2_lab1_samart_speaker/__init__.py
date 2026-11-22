@@ -1,2 +1,8 @@
+from .altavoz import Altavoz
+
+
 def main() -> None:
-    print("Hello from poo-ud-2-lab1-samart-speaker!")
+    altavoz = Altavoz("Salón", 30)
+    print(altavoz.nombre)
+    print(altavoz.volumen)
+    print(altavoz.estado)

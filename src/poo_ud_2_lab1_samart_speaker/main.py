@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 from altavoz import Altavoz
+=======
+from poo_ud_2_lab1_samart_speaker.altavoz import Altavoz
+>>>>>>> 6dbad62 (Implementar y documentar Smart Speaker)
 
 
 def main() -> None:
@@ -6,6 +10,7 @@ def main() -> None:
 
     print(altavoz.nombre)
     print(altavoz.volumen)
+<<<<<<< HEAD
     print(altavoz.encendido)
 
     altavoz.nombre = ""
@@ -15,6 +20,15 @@ def main() -> None:
     print(altavoz.nombre)
     print(altavoz.volumen)
     print(altavoz.encendido)
+=======
+    print(altavoz.estado)
+
+    altavoz.encender()
+    print(altavoz.estado)
+
+    altavoz.apagar()
+    print(altavoz.estado)
+>>>>>>> 6dbad62 (Implementar y documentar Smart Speaker)
 
 
 if __name__ == "__main__":

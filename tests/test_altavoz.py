@@ -21,15 +21,37 @@ def test_nombre_se_guarda_sin_espacios_al_principio_ni_al_final():
     assert altavoz.nombre == "Cocina"
 
 
+def test_nombre_permite_espacios_internos():
+    altavoz = Altavoz("Salón Principal", 30)
+
+    assert altavoz.nombre == "Salón Principal"
+
+
+def test_nombre_se_puede_modificar_mediante_su_setter():
+    altavoz = Altavoz("Salón", 30)
+
+    altavoz.nombre = "  Dormitorio  "
+
+    assert altavoz.nombre == "Dormitorio"
+
+
 @pytest.mark.parametrize("nombre", ["", " ", "   "])
 def test_nombre_vacio_o_con_espacios_lanza_value_error(nombre):
     with pytest.raises(ValueError):
         Altavoz(nombre, 30)
 
 
-def test_nombre_que_no_es_cadena_lanza_type_error():
+@pytest.mark.parametrize("nombre", [123, None])
+def test_nombre_que_no_es_cadena_lanza_type_error(nombre):
     with pytest.raises(TypeError):
-        Altavoz(123, 30)
+        Altavoz(nombre, 30)
+
+
+def test_nombre_asignado_incorrectamente_lanza_value_error():
+    altavoz = Altavoz("Salón", 30)
+
+    with pytest.raises(ValueError):
+        altavoz.nombre = " "
 
 
 @pytest.mark.parametrize("volumen", [0, 100])
@@ -55,6 +77,23 @@ def test_volumen_que_no_es_entero_lanza_type_error(volumen):
 def test_volumen_booleano_lanza_type_error(volumen):
     with pytest.raises(TypeError):
         Altavoz("Sala", volumen)
+
+
+@pytest.mark.parametrize(
+    ("volumen", "error"),
+    [
+        (-1, ValueError),
+        (101, ValueError),
+        (25.5, TypeError),
+        ("50", TypeError),
+        (True, TypeError),
+    ],
+)
+def test_asignacion_invalida_de_volumen_lanza_excepcion(volumen, error):
+    altavoz = Altavoz("Sala", 30)
+
+    with pytest.raises(error):
+        altavoz.volumen = volumen
 
 
 def test_estado_se_puede_consultar_pero_no_asignar_directamente():

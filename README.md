@@ -14,3 +14,6 @@ Ejercicio de encapsulación y validación mediante una clase `Altavoz` en Python
 uv run python -m poo_ud_2_lab1_samart_speaker.main
 uv run pytest -q
 ```
+
+Las pruebas automatizadas se encuentran en [tests/test_altavoz.py](tests/test_altavoz.py).
+Los resultados y el diseño de la batería se documentan en [docs/pruebas.md](docs/pruebas.md).

@@ -23,11 +23,7 @@ Durante la fase de análisis inicial, se establecieron los siguientes requisitos
 | :--- | :--- | :--- |
 | `nombre del altavoz` | **Interno** (por convención: _nombre) | Consultar y modificar con validación: Consultar y modificar mediante una propiedad (@property) o métodos que validen que no esté vacío. |
 | `volumen` | **Interno** (por convención: _volumen) | Consultar y modificar con validación: Consultar y modificar mediante una propiedad o métodos que validen que esté entre 0 y 100. |
-<<<<<<< HEAD
-| `estado de encendido` | **Interno** (por convención: _encendido) | Consultar, pero no modificar directamente: Consultarse externamente (para saber si está encendido), pero **no modificarse de forma directa** (se altera únicamente a través de los métodos de control). |
-=======
 | `estado de encendido` | **Interno** (por convención: _estado) | Consultar, pero no modificar directamente: Consultarse externamente (para saber si está encendido), pero **no modificarse de forma directa** (se altera únicamente a través de los métodos de control). |
->>>>>>> 6dbad62 (Implementar y documentar Smart Speaker)
 | `Operación encender` | **Público** (encender()) | Cambiar el estado: Método accesible desde fuera para cambiar el estado del altavoz a encendido de forma controlada. |
 | `Operación apagar` | **Público** (apagar()) | Cambiar el estado: Método accesible desde fuera para cambiar el estado del altavoz a apagado de forma controlada. |
 
@@ -68,10 +64,7 @@ Para proteger los datos internos y mantener una interfaz limpia, se ha aplicado 
 | **I06** | Asignar volumen `25.5` (decimal) | `TypeError` | **Sí** (Funcional)* |
 | **I07** | Asignar volumen `"alto"` (texto) | `TypeError` | **Sí** (Funcional)* |
 | **I08** | Asignar `altavoz.estado = "encendido"` | `AttributeError` | **Sí** |
-<<<<<<< HEAD
-=======
 | **I09** | Asignar volumen `True` (booleano) | `TypeError` | **Sí** |
->>>>>>> 6dbad62 (Implementar y documentar Smart Speaker)
 
 *\*Nota técnica:* Las pruebas I03, I06 e I07 devuelven `TypeError` debido al uso de validaciones de tipos estrictas en Python, lo cual constituye una buena práctica de desarrollo para distinguir errores de tipado frente a errores de rango numérico (`ValueError`).
 

@@ -27,11 +27,7 @@ class Altavoz:
 
     @volumen.setter
     def volumen(self, nuevo_volumen: int):
-<<<<<<< HEAD
-        if not isinstance(nuevo_volumen, int):
-=======
         if not isinstance(nuevo_volumen, int) or isinstance(nuevo_volumen, bool):
->>>>>>> 6dbad62 (Implementar y documentar Smart Speaker)
             raise TypeError("El volumen debe ser un número entero.")
         if not (0 <= nuevo_volumen <= 100):
             raise ValueError("El volumen debe estar comprendido entre 0 y 100.")
